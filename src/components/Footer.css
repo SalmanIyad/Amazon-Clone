@@ -1,0 +1,23 @@
+.footer {
+  background-color: #f0f0f0;
+}
+
+.footer h5 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer .nav-link {
+  color: #272727;
+  text-decoration: none;
+  margin-bottom: 0.3rem;
+}
+
+.footer .nav-link:hover {
+  text-decoration: underline;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+}
