@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 
 export default function Footer() {
@@ -47,7 +46,7 @@ export default function Footer() {
         </Row>
         <Row>
           <Col className="text-center py-3">
-            &copy; {new Date().getFullYear()} Amazon Clone. All rights reserved.
+            &copy; 1996-{new Date().getFullYear()}, Amazon.com, Inc. or its affiliates
           </Col>
         </Row>
       </Container>

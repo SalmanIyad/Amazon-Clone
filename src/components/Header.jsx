@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SignOutButton from "./SignOutButton";
 import AmazonLogo from "../assets/amazonLogo.png";
@@ -18,18 +18,18 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const cartItems = useSelector((state) => state.cart.items);
   const user = useSelector((state) => state.user.currentUser);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   if (searchQuery.trim()) {
-  //     navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
-  //     setSearchQuery(""); 
-  //   }
-  // };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery(""); 
+    }
+  };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm">
+    <Navbar bg="dark" variant="dark" expand="lg" className="shadow-sm px-3 py-2">
       <Navbar.Brand as={Link} to="/">
         <Image src={AmazonLogo} alt="Amazon Logo" height={40} />
       </Navbar.Brand>
@@ -37,7 +37,7 @@ export default function Header() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Form
           className="d-flex align-items-center mx-auto"
-          // onSubmit={handleSearch}
+          onSubmit={handleSearch}
         >
           <FormControl
             type="text"
