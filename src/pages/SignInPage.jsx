@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Container,
   Row,
@@ -161,9 +161,11 @@ export default function SignInPage() {
             </Card>
             <HrText text="New to Amazon?" />
             <div className="a-divider a-divider-break">
-              <Button variant="outline-secondary" className="w-100" href="/signup">
-                Create your Amazon account
-              </Button>
+              <Link to={`/signup`}>
+                <Button variant="outline-secondary" className="w-100">
+                  Create your Amazon account
+                </Button>
+              </Link>
             </div>
           </Col>
         </Row>

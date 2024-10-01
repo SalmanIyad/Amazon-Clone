@@ -16,7 +16,7 @@ import {
 import { setUser } from "../store/slices/userSlice";
 import AmazonLogo from "../assets/Amazon_logo_light.svg";
 import AuthPageFooter from "../components/AuthPageFooter";
-
+import { Link } from 'react-router-dom';
 
 const apiUrl = "http://localhost:5000/users";
 
@@ -204,9 +204,9 @@ export default function SignUpPage() {
                 <br />
                 <hr />
                 <span>Already have an account?</span>{" "}
-                <a href="/signin" style={{ textDecoration: "none" }}>
+                <Link to={`/signin`}>
                   Sign in
-                </a>
+                </Link>
               </div>
             </Card>
           </Col>
