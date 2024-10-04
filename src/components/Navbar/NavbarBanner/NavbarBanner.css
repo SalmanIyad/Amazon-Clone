@@ -1,0 +1,26 @@
+.navbarLinks a{
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem;
+}
+
+.navbarLinks a:hover {
+    border: 1px solid;
+    border-radius: 0.1875rem; 
+    height: 1.9125rem; 
+}
+
+.blod{
+    font-weight: 700;
+}
+
+.NavBannerp{
+    color: white;
+    margin-bottom: 0;
+    padding: 0.5rem;
+    background-color: rgb(51, 51, 51);
+}
+
+div.navbarBanner{
+    background-color:rgb(51, 51, 51) ;
+}

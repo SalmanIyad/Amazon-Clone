@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import ProductListingPage from './pages/ProductListingPage';
-import ProductDetailPage from './pages/ProductDetailPage';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import HomePage from './pages/HomePage/HomePage';
+import ProductListingPage from './pages/ProductsPage/ProductsPage';
+import ProductDetailPage from './pages/ProductDetailsPage/ProductDetailsPage';
 import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
+import CheckoutPage from './pages/CheckoutPage'; 
 import UserAccountPage from './pages/UserAccountPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="App d-flex flex-column min-vh-100">
-      {!isAuthPage() && <Header />}
+      {!isAuthPage() && <Navbar />}
       <main className="flex-grow-1">
         <Routes>
           <Route path="/" element={<HomePage />} />

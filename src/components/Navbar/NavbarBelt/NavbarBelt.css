@@ -1,0 +1,116 @@
+.navbarBelt {
+  background-color: #131921;
+  width: 100%;
+  height: 4.375rem;
+  color: white;
+  padding: 1rem;
+}
+
+.leftNavbarBelt {
+  padding: 0.625rem;
+}
+
+.amazonLogoNavbar {
+  width: 7.5rem;
+  max-width: 100%;
+  height: auto;
+}
+.amazonLogoNavbarMoblie {
+  width: 5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.leftNavbarLogo:hover,
+.location:hover,
+.DropdownToggle:hover,
+.returnsOrders:hover,
+.ShoppingCart:hover {
+  border: 1px solid;
+  border-radius: 0.1875rem;
+  height: 3.8125rem;
+}
+
+.leftNavbarLogo:hover {
+  display: flex;
+  align-items: center;
+}
+
+#deliver {
+  font-size: smaller;
+  color: rgb(153, 153, 153);
+}
+
+.location {
+  font-size: smaller;
+}
+
+.blod {
+  font-weight: 600;
+  font-size: medium;
+}
+
+#dropdown-basic-categories {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 0.6875rem;
+}
+
+#dropdown-basic {
+  font-size: smaller;
+  margin: 0;
+}
+
+input.form-control {
+  border-radius: 0;
+  width: 100%;
+  padding: 0.625rem;
+  border: 0;
+}
+
+input.form-controlMobile {
+  border-radius: 0.4375rem;
+  width: 100%;
+  padding: 0.625rem;
+  border: 0;
+}
+
+.DropdownToggle {
+  font-size: small;
+}
+
+.navbarBeltSearchBox {
+  width: 48%;
+}
+
+.returnsOrders a {
+  color: white;
+}
+
+.returnsOrders {
+  font-size: small;
+}
+
+.ShoppingCart {
+  position: relative;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+span#cartItems {
+  color: orangered;
+  position: absolute;
+  left: 35%;
+  top: 2%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+#cart {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.6rem;
+  color: white;
+}

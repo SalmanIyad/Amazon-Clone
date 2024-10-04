@@ -1,0 +1,40 @@
+.offcanvas-menu {
+    background-color: #f7f7f7;
+}
+
+.offcanvas-header {
+    background-color: #303030; 
+    color: white; 
+}
+
+.offcanvas-section {
+    margin-bottom: 20px;
+}
+
+.offcanvas-section h5 {
+    font-weight: bold;
+    color: #333;
+}
+
+.offcanvas-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.offcanvas-list li {
+    padding: 0.7rem 0.3rem;
+}
+
+.offcanvas-list li:hover {
+    background-color: #50505023;
+}
+
+.offcanvas-list a {
+    text-decoration: none;
+    color: #007185;
+    transition: color 0.3s;
+}
+
+.offcanvas-list a:hover {
+    color: #005f73;
+}

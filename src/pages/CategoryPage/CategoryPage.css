@@ -1,0 +1,39 @@
+.pCard  {
+    width: 17rem;
+    min-height: 39rem;
+color: black;
+
+}
+.card-img-top-product {
+     height: 12.5rem;
+      object-fit:contain;
+      padding: 0.5rem;
+}
+.card-title{
+    min-height: 3rem;
+    
+}
+.navBar {
+     padding: 0.2rem;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+   }
+.form-select{
+    font-size: x-small;
+    border-radius: 10px;
+    background-color: aquamarine;
+}
+
+a{
+    text-decoration: none;
+}
+.addToCard{
+    width: fit-content;
+    border-radius: 10rem;
+    font-size: small;
+}
+.bold{
+    font-weight: 800;
+}
+.line{
+    text-decoration: line-through;
+}

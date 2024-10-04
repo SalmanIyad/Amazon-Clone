@@ -81,7 +81,7 @@ export default function CartPage() {
                     />
                     <div className="flex-grow-1">
                       <Link
-                        to="#"
+                        to={`/product/${item.id}`}
                         style={{
                           fontSize: "1.2rem",
                           color: "#007185",
@@ -186,7 +186,10 @@ export default function CartPage() {
             <div style={{ fontWeight: "bold", fontSize: "1.3rem" }}>
               Subtotal ({cartItems.length} items): ${total.toFixed(2)}
             </div>
-            <Button
+            <Link
+              to={"/checkout"}
+            >
+              <Button
               className="btn-radius mt-3"
               style={{
                 backgroundColor: "#ffd814",
@@ -195,9 +198,11 @@ export default function CartPage() {
                 fontWeight: "bold",
                 width: "100%",
               }}
+              to={"/checkout"}
             >
               Proceed to Checkout
             </Button>
+            </Link>
             <div className="mt-3">
               <input type="checkbox" id="gift" />
               <label

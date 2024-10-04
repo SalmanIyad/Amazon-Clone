@@ -1,0 +1,77 @@
+.pCard {
+    width: 17rem;
+    min-height: 30rem;
+    color: black;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top-product {
+    height: 12.5rem;
+    object-fit: contain;
+    padding: 0.5rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-title {
+    min-height: 3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.navBar {
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.form-select {
+    font-size: small;
+    border-radius: 10px;
+    background-color: aquamarine;
+    padding: 0.25rem;
+    border: 1px solid #ccc;
+}
+
+a {
+    text-decoration: none;
+}
+
+.addToCard {
+    width: fit-content;
+    border-radius: 10rem;
+    font-size: small;
+    background-color: #ffc107;
+    border: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s;
+}
+
+.addToCard:hover {
+    background-color: #e0a800;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.line {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.9rem;
+}
