@@ -14,7 +14,7 @@ function CatogoryPage() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://localhost:5000/products/category/${category}`
+          `http://localhost:5000/products/category/${category}`
         );
         const productsData = response.data;
         setProducts(productsData);
