@@ -1,4 +1,3 @@
-import "./categoryPage.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
