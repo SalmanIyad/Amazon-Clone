@@ -40,6 +40,7 @@ function ProductDetailsPage() {
     handleAddToCart();
     navigate("/checkout");
   }
+  
 
   return (
     <div className="Container d-flex flex-row mx-0 my-5 gap-4">
@@ -146,8 +147,7 @@ function ProductDetailsPage() {
 
                 <button
                   className="btn btn-warning button my-2"
-                  onClick={handleAddToCart}
-                >
+              onClick={handleAddToCart}>
                   Add to Cart
                 </button>
                 <button className="btn orange button my-2" onClick={handleBuy}>Buy Now</button>

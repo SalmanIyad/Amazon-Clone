@@ -9,6 +9,7 @@ import ProductDetailPage from './pages/ProductDetailsPage/ProductDetailsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage'; 
 import UserAccountPage from './pages/UserAccountPage';
+import CategoryPage from './pages/CategoryPage/CatogoryPage'
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductListingPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path='/category/:category' element={<CategoryPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/account" element={<UserAccountPage />} />

@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import "./CategoriesList.css"; // Import the CSS styles
+import "./CategoriesList.css"; 
 
 function CategoriesList() {
   const [products, setProducts] = useState([]);

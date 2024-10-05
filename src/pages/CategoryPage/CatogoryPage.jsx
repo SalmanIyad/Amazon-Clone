@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import "./categoryPage.css";
+import { Link, useParams } from "react-router-dom";
 
 function CatogoryPage() {
   const [products, setProducts] = useState([]);
@@ -20,9 +19,10 @@ function CatogoryPage() {
         const productsData = response.data;
         setProducts(productsData);
       } catch (error) {
-        console.error("Error fetching Category: ", error);
-      } 
-      setLoading(false);
+        console.error("Error fetching Category:", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     if (category) {
@@ -37,8 +37,8 @@ function CatogoryPage() {
           <select className="form-select  " aria-label="Default select example">
             <option selected>Sort By: featured</option>
             <option value="featured">featured</option>
-            <option value="Price: Low to High">Price: Low to High</option>
-            <option value="Price: High to Low">Price: High to Low</option>
+            <option value="Pric : Low to High">Pric : Low to High</option>
+            <option value="Price : High to Low">Price : High to Low</option>
             <option value="Avg. Customer Review">Avg. Customer Review</option>
             <option value="Best sellers">Best sellers</option>
           </select>
@@ -61,7 +61,7 @@ function CatogoryPage() {
           <div className="col-10 d-flex flex-wrap justify-content-center  gap-2 my-4">
             {products.map((product) => (
               <Link
-                to={`/category/${category}/product/${product.id}`}
+                to={`/product/${product.id}`}
                 key={product.id}
               >
                 <div
@@ -91,9 +91,9 @@ function CatogoryPage() {
                           list: ${parseFloat((product.price + 10).toFixed(2))}
                         </p>
                       </div>
-                      <button href="#" className="btn btn-warning addToCard ">
+                     <Link to={`/product/${product.id}`}><button  className="btn btn-warning addToCard "  >
                         Add to cart
-                      </button>
+                      </button></Link> 
                     </div>
                   </div>
                 </div>
