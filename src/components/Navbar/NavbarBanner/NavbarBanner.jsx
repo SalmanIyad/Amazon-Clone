@@ -14,7 +14,7 @@ export default function NavbarBanner() {
           <a href="#">Registry</a>
           <a href="#">Gift Cards</a>
           <a href="#">Sell</a>
-          <Link to="/products">All Products</Link>
+          <Link to="/products">  All Products</Link>
         </div>
       </div>
 

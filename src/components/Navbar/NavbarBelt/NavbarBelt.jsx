@@ -68,7 +68,7 @@ export default function NavbarBelt() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <CategoriesList />
+                  <CategoriesList/>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -81,7 +81,7 @@ export default function NavbarBelt() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button type="submit" value="">
+            <button className="p-0 m-0"  type="submit" value="" style={{backgroundColor:"rgb(31 34 36)" , border:"none"}}>
               <SearchIcon
                 style={{
                   color: "black",
@@ -89,7 +89,7 @@ export default function NavbarBelt() {
                   borderTopRightRadius: "6px",
                   borderBottomRightRadius: "6px",
                   position: "relative",
-                  right: "3%",
+                  right: "16%",
                   padding: "0.4rem",
                   width: "3rem",
                   height: "3rem",
@@ -427,7 +427,7 @@ export default function NavbarBelt() {
                   <p className="p-0 m-0">Hello, Salman</p>
                 )}
                 <Link to={"/account"}>
-                  <span className="blod">Account & Lists</span>
+                  <span className="blod text-white">Account & Lists</span>
                 </Link>
               </Dropdown.Toggle>
             </div>
@@ -500,7 +500,7 @@ export default function NavbarBelt() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <button type="submit" value="">
+              <button type="submit" value="" style={{backgroundColor:"rgb(31 34 36)" , border:"none"}}>
                 <SearchIcon
                   style={{
                     color: "black",

@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Link } from "react-router-dom";
 import "./Categories.css";
 
 function Categories() {
@@ -50,7 +51,7 @@ function Categories() {
       ) : (
         categories.map((category, index) => (
           <div key={index} className="category-section">
-            <h2 className="p-1 mx-3">{category}</h2>
+            <Link to={`/category/${category}`}> <h2 className="p-1 mx-3">{category}</h2></Link>
             <div className="products-grid d-flex flex-wrap">
               {products
                 .filter((product) => product.category === category)

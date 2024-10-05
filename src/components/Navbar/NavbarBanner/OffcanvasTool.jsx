@@ -54,7 +54,7 @@ function Offcanvastool() {
                 <Link to="#">Arts & Crafts</Link>
               </li>
               <li>
-                <Link to="#">See all</Link>
+                <Link to="/products">See all</Link>
               </li>
             </ul>
           </div>
