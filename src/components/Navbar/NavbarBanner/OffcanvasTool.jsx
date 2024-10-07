@@ -4,11 +4,14 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import { Link } from "react-router-dom";
 import "./OffcanvasTool.css";
+import { useSelector } from "react-redux";
+import SignOutButton from "../../SignOutButton";
 
 function Offcanvastool() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <>
@@ -19,7 +22,15 @@ function Offcanvastool() {
       <Offcanvas show={show} onHide={handleClose} className="offcanvas-menu">
         <Offcanvas.Header closeButton className="offcanvas-header">
           <Offcanvas.Title>
-            <h4 className="py-2">Hello, <Link to="/signin" style={{ color: "white", textDecoration: "underline" }}>Sign in</Link></h4>
+            {user ? (
+              <Link to="/profile" className="mt-1 text-capitalize" style={{ color: "white" }}>
+                Hello, {user.name}
+              </Link>
+            ) : (
+              <Link to="/signin" className="mt-1" style={{ color: "white" }}>
+                 Hello, Sign in
+              </Link>
+            )}
           </Offcanvas.Title>
         </Offcanvas.Header>
 
@@ -74,7 +85,7 @@ function Offcanvastool() {
                 <Link to="#">Customer Service</Link>
               </li>
               <li>
-                <Link to="/signin">Sign in</Link>
+                {user ? <SignOutButton/> : <Link to="/signin">Sign In</Link>}
               </li>
             </ul>
           </div>

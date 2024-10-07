@@ -13,7 +13,12 @@ export default function SignOutButton() {
   };
 
   return (
-    <Button variant="outline-light" onClick={handleSignOut}>
+    <Button variant="dark" onClick={handleSignOut} style={{
+      backgroundColor: "#ffb514",
+      borderColor: "#ffb514",
+      color: "black",
+      borderRadius: "3rem"
+    }}>
       Sign Out
     </Button>
   );

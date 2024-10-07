@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card, ListGroup, Image } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-// import "./CheckoutPage.css";
 
 export default function CheckoutPage() {
+
+  const navigate = useNavigate();
+
   const cartItems = useSelector((state) => state.cart.items);
   const [shippingAddress, setShippingAddress] = useState({
     fullName: '',
@@ -23,8 +25,16 @@ export default function CheckoutPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Order submitted', { items: cartItems, shippingAddress });
+    
+    const orderData = { items: cartItems, shippingAddress };
+    console.log('Order submitted', orderData);
+    
+    localStorage.setItem("orders", JSON.stringify(orderData));
+    
+    navigate("/account");
   };
+  
+
 
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -139,7 +149,7 @@ export default function CheckoutPage() {
           </Card>
           <div className="mt-3 text-center">
             <Link to="/cart" className="text-decoration-none">
-              <Button variant="outline-primary" size="sm">
+              <Button variant="outline-primary" size="md">
                 Edit Cart
               </Button>
             </Link>

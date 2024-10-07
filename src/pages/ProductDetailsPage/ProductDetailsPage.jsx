@@ -7,6 +7,7 @@ import { addToCart } from "../../store/slices/cartSlice";
 import { useEffect, useState } from "react";
 import "./ProductDetails.css";
 import axios from "axios";
+import StarRating from "../../components/StarRating";
 
 function ProductDetailsPage() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ function ProductDetailsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     async function fetchProduct(id) {
       setIsLoading(true);
@@ -40,20 +41,20 @@ function ProductDetailsPage() {
     handleAddToCart();
     navigate("/checkout");
   }
-  
+
 
   return (
     <div className="Container d-flex flex-row mx-0 my-5 gap-4">
       <div className="col-1 d-flex flex-column gap-1 p-4 justify-content-center">
         {isLoading
           ? Array(5)
-              .fill(null)
-              .map((_, index) => (
-                <Skeleton key={index} height={60} width={60} />
-              ))
+            .fill(null)
+            .map((_, index) => (
+              <Skeleton key={index} height={60} width={60} />
+            ))
           : Array(5).fill(
-              <img className="slide" src={product.image} alt={product.title} />
-            )}
+            <img className="slide" src={product.image} alt={product.title} />
+          )}
       </div>
 
       <div className="col-3 main-image-container d-flex img-fluid justify-content-center align-items-center">
@@ -75,6 +76,10 @@ function ProductDetailsPage() {
           <>
             <h1>{product.title}</h1>
             <p className="price">${product.price}</p>
+            <div className="rating-container">
+              <StarRating rating={product.rating.rate} />
+              <p className="rating-count">(<strong>{product.rating.count}</strong> reviews)</p>
+            </div>
             <p>
               Available at a lower price from other sellers that may not offer free
               Prime shipping. Brand: {product.brand}
@@ -146,13 +151,19 @@ function ProductDetailsPage() {
                 </select>
 
                 <button
-                  className="btn btn-warning button my-2"
-              onClick={handleAddToCart}>
+                  className="btn button my-2"
+                  style={{
+                    backgroundColor: "#ffd814",
+                    borderColor: "#fcd200",
+                    color: "black",
+                    borderRadius: "3rem"
+                  }}
+                  onClick={handleAddToCart}>
                   Add to Cart
                 </button>
-                <button className="btn orange button my-2" onClick={handleBuy}>Buy Now</button>
+                <button className="btn orange button" onClick= {handleBuy}>Buy Now</button>
 
-                <table className="smaller">
+                <table className="smaller my-4">
                   <tbody>
                     <tr>
                       <td>Ships from</td>

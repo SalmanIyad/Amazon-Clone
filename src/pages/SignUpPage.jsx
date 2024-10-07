@@ -18,7 +18,7 @@ import AmazonLogo from "../assets/Amazon_logo_light.svg";
 import AuthPageFooter from "../components/AuthPageFooter";
 import { Link } from 'react-router-dom';
 
-const apiUrl = "http://localhost:5000/users";
+const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/users`;
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -58,6 +58,7 @@ export default function SignUpPage() {
 
       const newUser = await response.json();
       dispatch(setUser(newUser));
+      localStorage.setItem("userId", newUser.id);
       navigate("/");
     } catch (err) {
       setError(err.message);

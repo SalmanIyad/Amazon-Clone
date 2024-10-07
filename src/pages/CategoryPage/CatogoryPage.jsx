@@ -58,7 +58,7 @@ function CatogoryPage() {
             ))}
           </div>
         ) : (
-          <div className="col-10 d-flex flex-wrap justify-content-center  gap-2 my-4">
+          <div className="col-10 d-flex flex-wrap justify-content-center gap-2 my-4">
             {products.map((product) => (
               <Link
                 to={`/product/${product.id}`}
@@ -91,7 +91,7 @@ function CatogoryPage() {
                           list: ${parseFloat((product.price + 10).toFixed(2))}
                         </p>
                       </div>
-                     <Link to={`/product/${product.id}`}><button  className="btn btn-warning addToCard "  >
+                     <Link to={`/product/${product.id}`}><button className="btn btn-warning addToCard"  >
                         Add to cart
                       </button></Link> 
                     </div>

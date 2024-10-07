@@ -419,12 +419,11 @@ export default function NavbarBelt() {
             <div className="DropdownToggle d-flex  flex-row text-start p-0 ">
               <Dropdown.Toggle variant="dark" id="dropdown-basic">
                 {user ? (
-                  <p className="p-0 m-0">
-                    Hello, <Link to={"/signin"}>sign in</Link>
-                  </p>
+                  <p className="p-0 m-0">Hello, {user.name}</p>
                 ) : (
-                  // <p className="p-0 m-0">Hello, {user.name}</p>
-                  <p className="p-0 m-0">Hello, Salman</p>
+                  <p className="p-0 m-0">
+                    Hello, <Link to={"/signin"} className="mt-1 text-capitalize" style={{ color: "white", textDecoration: "underline" }}>Sign In</Link>
+                  </p>
                 )}
                 <Link to={"/account"}>
                   <span className="blod text-white">Account & Lists</span>
@@ -469,15 +468,14 @@ export default function NavbarBelt() {
 
           <div className="d-flex justify-content-end align-items-center">
             {user ? (
-              <Link to="/signin" className="mt-1" style={{ color: "white" }}>
-                Hello, Salman
+              <Link to="/profile" className="mt-1 text-capitalize" style={{ color: "white" }}>
+                Hello, {user.name}
                 <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />
               </Link>
             ) : (
               <Link to="/signin" className="mt-1" style={{ color: "white" }}>
                 Sign in
-                <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />
-              </Link>
+                <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />               </Link>
             )}
             <Link id="cart" to="/cart">
               <div className="ShoppingCart">

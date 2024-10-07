@@ -15,7 +15,7 @@ function Categories() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/products");
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`);
         const productData = response.data;
         setProducts(productData);
         // console.log(productData);

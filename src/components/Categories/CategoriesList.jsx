@@ -14,7 +14,7 @@ function CategoriesList() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/products");
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`);
         const productData = response.data;
         setProducts(productData);
 
@@ -43,7 +43,7 @@ function CategoriesList() {
   };
 
   return (
-    <div className="categories-container">
+    <div>
       {loading ? (
         <Loadingcase />
       ) : (
@@ -51,7 +51,7 @@ function CategoriesList() {
           <Link
             to={`/category/${category}`}
             key={index}
-            style={{ width: "100%", marginBottom: "10px" }}
+            style={{ width: "100%" }}
           >
             <button className="btn-category">
               {category}

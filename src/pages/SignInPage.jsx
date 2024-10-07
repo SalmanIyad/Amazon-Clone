@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -13,11 +13,12 @@ import {
   CardText,
   CardLink,
 } from "react-bootstrap";
-import { setUser } from "../store/slices/userSlice";
+import { setUser } from "../store/slices/userSlice"; // Assuming you have setUser action
 import HrText from "../components/HrText";
 import AmazonLogo from "../assets/Amazon_logo_light.svg";
 import AuthPageFooter from "../components/AuthPageFooter";
-const apiUrl = "http://localhost:5000/users";
+
+const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/users`;
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -25,6 +26,20 @@ export default function SignInPage() {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const storedUserId = localStorage.getItem("userId");
+  //   if (storedUserId) {
+  //     fetch(`${apiUrl}/${storedUserId}`)
+  //       .then(response => response.json())
+  //       .then(user => {
+  //         if (user) {
+  //           dispatch(setUser(user));
+  //           navigate("/");
+  //         }
+  //       });
+  //   }
+  // }, [dispatch, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,6 +63,7 @@ export default function SignInPage() {
       }
 
       dispatch(setUser(user));
+      localStorage.setItem("userId", user.id);
       navigate("/");
     } catch (err) {
       setError("Error accessing user data!" + err.message);
@@ -56,7 +72,7 @@ export default function SignInPage() {
 
   return (
     <>
-      <Container className="my-3">
+      <Container className="my-4">
         <Row className="justify-content-center">
           <Col lg={4} md={6} className="text-center">
             <div className="text-center">
@@ -110,7 +126,6 @@ export default function SignInPage() {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                   />
                 </Form.Group>
 
@@ -119,7 +134,7 @@ export default function SignInPage() {
                 </Button>
 
                 <CardText
-                  class="para_text"
+                  className="para_text"
                   style={{ marginTop: "2em", textAlign: "left" }}
                 >
                   By continuing, you agree to Amazon&apos;s{" "}
@@ -149,7 +164,7 @@ export default function SignInPage() {
                 </a>
                 <br />
                 <hr />
-                <b>Bying for work?</b>
+                <b>Buying for work?</b>
                 <br />
                 <CardLink
                   href="https://www.amazon.com/business/register/org/landing?ref_=ap_altreg_ab"

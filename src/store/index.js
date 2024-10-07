@@ -15,5 +15,3 @@ export default function Component() {
   return null;
 }
 
-
-//! THIS SECTION IS UNDER DEVELOPMENT!
