@@ -1,4 +1,3 @@
-import "./categoryPage.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
@@ -16,7 +15,7 @@ function CatogoryPage() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://fakestoreapi.com/products/category/${category}`
+          `http://localhost:5000/products/category/${category}`
         );
         const productsData = response.data;
         setProducts(productsData);
