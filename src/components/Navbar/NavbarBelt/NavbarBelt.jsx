@@ -16,6 +16,7 @@ import CategoriesList from "../../Categories/CategoriesList";
 import amazonLogo from "../../../assets/amazonLogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./NavbarBelt.css";
+import SignOutButton from "../../SignOutButton";
 
 export default function NavbarBelt() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -431,7 +432,10 @@ export default function NavbarBelt() {
               </Dropdown.Toggle>
             </div>
             <Dropdown.Menu>
-              <Dropdown.Item href="#">Action</Dropdown.Item>
+              <Dropdown.Item><Link to={"/account"}>My Account</Link></Dropdown.Item>
+              <Dropdown.Item><Link to={"/profile"}>My Profile</Link></Dropdown.Item>
+              {(user?.role === 'admin') && <Dropdown.Item><Link to={"/admin"}>Dashboard</Link></Dropdown.Item>}
+              <Dropdown.Item><SignOutButton/></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>

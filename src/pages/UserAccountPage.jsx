@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function UserAccountPage() {
   const user = useSelector((state) => state.user.currentUser);
-  console.log(user);
+  // console.log(user);
 
   if (!user) {
     return <Link to={"/signin"} className="text-center"><h5 className="my-4">Please log in to view your account</h5></Link>;
@@ -23,7 +23,11 @@ export default function UserAccountPage() {
               <h5>
                 Name: <strong>{user.name}</strong>
                 <br />
+                <br />
                 Email: <strong>{user.email}</strong>
+                <br />
+                <br />
+                Role: <strong>{user.role}</strong>
               </h5>
             </Card.Body>
           </Card>

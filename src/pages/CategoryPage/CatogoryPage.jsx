@@ -13,13 +13,16 @@ function CatogoryPage() {
     const fetchProductsByCategory = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `http://localhost:5000/products/category/${category}`
-        );
-        const productsData = response.data;
-        setProducts(productsData);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`);
+        if (response.status === 200) {
+          const allProducts = response.data;
+          const filteredProducts = allProducts.filter(product => product.category === category);
+          setProducts(filteredProducts);
+        } else {
+          console.error("Error: Invalid response status", response.status);
+        }
       } catch (error) {
-        console.error("Error fetching Category:", error);
+        console.error("Error fetching products:", error);
       } finally {
         setLoading(false);
       }
@@ -32,18 +35,6 @@ function CatogoryPage() {
 
   return (
     <>
-      <div className="navBar d-flex justify-content-end  ">
-        <div>
-          <select className="form-select  " aria-label="Default select example">
-            <option selected>Sort By: featured</option>
-            <option value="featured">featured</option>
-            <option value="Pric : Low to High">Pric : Low to High</option>
-            <option value="Price : High to Low">Price : High to Low</option>
-            <option value="Avg. Customer Review">Avg. Customer Review</option>
-            <option value="Best sellers">Best sellers</option>
-          </select>
-        </div>
-      </div>
 
       <div className="col-12 d-flex flex-wrap  justify-content-center">
         <div className="col-2 d-flex flex-column p-4 my-4">
@@ -53,20 +44,17 @@ function CatogoryPage() {
 
         {loading ? (
           <div className="col-10 d-flex flex-wrap justify-content-center gap-2 my-4 ">
-            {[...Array(8)].map((index) => (
+            {[...Array(8)].map((_, index) => (
               <Skeleton key={index} width={256} height={350} />
             ))}
           </div>
         ) : (
           <div className="col-10 d-flex flex-wrap justify-content-center gap-2 my-4">
             {products.map((product) => (
-              <Link
-                to={`/product/${product.id}`}
-                key={product.id}
-              >
+              <Link to={`/product/${product.id}`} key={product.id}>
                 <div
                   key={product.id}
-                  className="card pCard d-flex flex-column justify-content-between "
+                  className="card pCard d-flex flex-column justify-content-between"
                 >
                   <img
                     src={product.image}
@@ -91,9 +79,9 @@ function CatogoryPage() {
                           list: ${parseFloat((product.price + 10).toFixed(2))}
                         </p>
                       </div>
-                     <Link to={`/product/${product.id}`}><button className="btn btn-warning addToCard"  >
+                      <Link to={`/product/${product.id}`}><button className="btn btn-warning addToCard"  >
                         Add to cart
-                      </button></Link> 
+                      </button></Link>
                     </div>
                   </div>
                 </div>

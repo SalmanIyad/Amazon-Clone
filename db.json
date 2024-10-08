@@ -250,11 +250,10 @@
       "role": "user"
     },
     {
-      "id": "1111",
       "name": "User",
-      "email": "user1@user.com",
+      "email": "user@user.com",
       "password": "user123",
-      "role": "user"
+      "id": "1111"
     },
     {
       "id": "d46f",

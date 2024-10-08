@@ -92,7 +92,7 @@ export default function ProductsPage() {
         </div>
       ) : (
         <div className="col-12 d-flex flex-wrap justify-content-center gap-3 my-4">
-          {filteredProducts.length === 0 ? ( // Check if no products match the search
+          {filteredProducts.length === 0 ? ( 
             <p>No products found.</p>
           ) : (
             filteredProducts.map((product) => (

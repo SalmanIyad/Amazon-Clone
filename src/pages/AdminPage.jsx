@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Container, Tabs, Tab, Table, Button, Modal, Form } from 'react-bootstrap';
 import axios from 'axios';
+import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 const AdminPage = () => {
   const [products, setProducts] = useState([]);
@@ -9,20 +11,37 @@ const AdminPage = () => {
   const [showUserModal, setShowUserModal] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const user = useSelector((state) => state.user.currentUser);
+  
+  
+  const fetchProducts = async () => {
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`);
+    setProducts(response.data);
+    console.log("user");
+    console.log(user);
+  };
+
+  const fetchUsers = async () => {
+    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users`);
+    setUsers(response.data);
+  };
 
   useEffect(() => {
     fetchProducts();
     fetchUsers();
   }, []);
 
-  const fetchProducts = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`);
-    setProducts(response.data);
-  };
+  if (!user) {
+    return <Link to={"/signin"} className="text-center"><h5 className="my-4">Please log in to your account</h5></Link>;
+  }
 
-  const fetchUsers = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users`);
-    setUsers(response.data);
+  if (user?.role !== 'admin') {
+    return <>
+      <h5 className="my-4 text-center">
+        You are not Authorized, {' '}
+        <Link to={"/"} className="text-center text-underline">Go Back to HomePage</Link>
+      </h5>
+    </>;
   };
 
   const handleProductSubmit = async (event) => {
@@ -96,8 +115,8 @@ const AdminPage = () => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th style={{width: "30%"}}>Title</th>
-                <th style={{width: "30%"}}>Description</th>
+                <th style={{ width: "30%" }}>Title</th>
+                <th style={{ width: "30%" }}>Description</th>
                 <th>Price</th>
                 <th>Category</th>
                 <th>Rating</th>

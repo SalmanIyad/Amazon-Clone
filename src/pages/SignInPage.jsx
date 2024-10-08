@@ -13,7 +13,7 @@ import {
   CardText,
   CardLink,
 } from "react-bootstrap";
-import { setUser } from "../store/slices/userSlice"; // Assuming you have setUser action
+import { setUser } from "../store/slices/userSlice";
 import HrText from "../components/HrText";
 import AmazonLogo from "../assets/Amazon_logo_light.svg";
 import AuthPageFooter from "../components/AuthPageFooter";

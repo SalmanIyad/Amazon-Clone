@@ -80,7 +80,7 @@ export default function SignUpPage() {
             </div>
             {error && <Alert variant="danger">{error}</Alert>}
             <Card className="p-4">
-              <h2 className="text-left" style={{ textAlign: "left" }}>
+              <h2 style={{ textAlign: "left" }}>
                 Create account
               </h2>
               <br />
