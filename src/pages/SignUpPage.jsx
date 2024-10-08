@@ -17,6 +17,7 @@ import { setUser } from "../store/slices/userSlice";
 import AmazonLogo from "../assets/Amazon_logo_light.svg";
 import AuthPageFooter from "../components/AuthPageFooter";
 import { Link } from 'react-router-dom';
+import CheckEmailPage from "./CheckEmailPage";
 
 const apiUrl = "http://localhost:5000/users";
 
@@ -58,7 +59,9 @@ export default function SignUpPage() {
 
       const newUser = await response.json();
       dispatch(setUser(newUser));
-      navigate("/");
+
+      navigate("/checkemail");
+
     } catch (err) {
       setError(err.message);
     }
@@ -70,12 +73,12 @@ export default function SignUpPage() {
         <Row className="justify-content-center">
           <Col lg={4} md={6} className="text-center">
           <div className="text-center">
-              <Image
+              <Link to={'/'}><Image
                 src={AmazonLogo}
                 alt="Amazon Logo"
-                className="mb-2"
+                className="mb-4"
                 style={{ width: "30%" }}
-              />
+              /></Link>
             </div>
             {error && <Alert variant="danger">{error}</Alert>}
             <Card className="p-4">
@@ -87,6 +90,7 @@ export default function SignUpPage() {
                 <Form.Group className="mb-3" controlId="formBasicName">
                   <Form.Label
                     style={{
+                     
                       fontWeight: "bold",
                       textAlign: "left",
                       display: "block",
@@ -98,6 +102,10 @@ export default function SignUpPage() {
                     type="text"
                     placeholder="First and last name"
                     value={name}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     onChange={(e) => setName(e.target.value)}
                     required
                   />
@@ -117,6 +125,10 @@ export default function SignUpPage() {
                     type="email"
                     placeholder="Enter email"
                     value={email}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
@@ -136,6 +148,10 @@ export default function SignUpPage() {
                     type="password"
                     placeholder="At least 6 characters"
                     value={password}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
@@ -155,16 +171,20 @@ export default function SignUpPage() {
                     type="password"
                     placeholder="Confirm Password"
                     value={confirmPassword}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
                 </Form.Group>
-                <Button variant="warning" type="submit" className="w-100">
+           <Button variant="warning blod " type="submit" className="w-100 ">
                   Continue
                 </Button>
                 <CardText
                   class="para_text"
-                  style={{ marginTop: "2em", textAlign: "left" }}
+                  style={{ marginTop: "2em", textAlign: "left",fontSize:"small" }}
                 >
                   By continuing, you agree to Amazon&apos;s{" "}
                   <a

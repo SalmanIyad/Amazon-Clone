@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { fetchProducts } from "../store/slices/productsSlice";
 import { useEffect } from "react";
 import { addToCart } from "../store/slices/cartSlice";
+import { useTranslation } from "react-i18next";
 
 export default function CartPage() {
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ export default function CartPage() {
     0
   );
 
+  const [t, i18n] = useTranslation();
+
   return (
     <Container className="mt-5">
       <Row>
@@ -60,11 +63,11 @@ export default function CartPage() {
                 marginBottom: "15px",
               }}
             >
-              Shopping Cart
+              {t('cart.Shopping Cart')}
             </div>
 
             {cartItems.length === 0 ? (
-              <p>Your Amazon Cart is empty.</p>
+              <p>{t('cart.Your Amazon Cart is empty.')}</p>
             ) : (
               cartItems.map((item) => (
                 <div
@@ -76,8 +79,8 @@ export default function CartPage() {
                       src={item.image}
                       alt={item.title}
                       fluid
-                      className="mb-2 mb-md-0"
-                      style={{ maxWidth: "150px", marginRight: "2rem" }}
+                      className="mb-2 mb-md-0 p-4"
+                      style={{ maxWidth: "150px", marginRight: "2rem", alignItems:"center"}}
                     />
                     <div className="flex-grow-1">
                       <Link
@@ -91,7 +94,7 @@ export default function CartPage() {
                         {item.title}
                       </Link>
                       <div className="mt-2">
-                        <span style={{ color: "green" }}>In Stock</span>
+                        <span style={{ color: "green" }}>{t('cart.In Stock')}</span>
                       </div>
                       <div className="mt-1">
                         <small>Style: Without Camera</small>
@@ -101,7 +104,7 @@ export default function CartPage() {
                           htmlFor={`qty-${item.id}`}
                           className="form-label"
                         >
-                          Qty:
+                          {t('cart.Qty')}
                         </label>
                         <select
                           id={`qty-${item.id}`}
@@ -125,15 +128,15 @@ export default function CartPage() {
                           className="text-muted"
                           onClick={() => handleRemoveItem(item.id)}
                         >
-                          Delete
+                       {t('cart.Delete')}
                         </Link>{" "}
                         |{" "}
                         <Link to="#" className="text-muted">
-                          Save for later
+                       {t('cart.Save for later')}
                         </Link>{" "}
                         |{" "}
                         <Link to="#" className="text-muted">
-                          Compare with similar items
+                          {t('cart.Compare with similar items')}
                         </Link>
                       </div>
                     </div>
@@ -142,7 +145,7 @@ export default function CartPage() {
                     style={{
                       fontWeight: "bold",
                       fontSize: "1.1rem",
-                      marginTop: "10px",
+                      margin:"1rem"
                     }}
                   >
                     ${item.price}
@@ -157,7 +160,7 @@ export default function CartPage() {
                 textAlign: "center",
               }}
             >
-              Subtotal ({cartItems.length} items): ${total.toFixed(2)}
+             {t('cart.Subtotal')}({cartItems.length} {t('cart.items')}): ${total.toFixed(2)}
             </div>
             <div
               style={{
@@ -166,9 +169,7 @@ export default function CartPage() {
                 marginTop: "10px",
               }}
             >
-              The price and availability of items at Amazon.com are subject to
-              change. The Cart is a temporary place to store a list of your
-              items and reflects each item&apos;s most recent price.
+       {t('cart.paragraph')}
             </div>
           </div>
         </Col>
@@ -184,7 +185,7 @@ export default function CartPage() {
             }}
           >
             <div style={{ fontWeight: "bold", fontSize: "1.3rem" }}>
-              Subtotal ({cartItems.length} items): ${total.toFixed(2)}
+              {t('cart.Subtotal')} ({cartItems.length} items): ${total.toFixed(2)}
             </div>
             <Link
               to={"/checkout"}
@@ -200,7 +201,7 @@ export default function CartPage() {
               }}
               to={"/checkout"}
             >
-              Proceed to Checkout
+              {t('cart.Proceed to Checkout')}
             </Button>
             </Link>
             <div className="mt-3">
@@ -211,7 +212,7 @@ export default function CartPage() {
                 style={{ fontSize: "0.9rem" }}
               >
                 {" "}
-                This order contains a gift{" "}
+                {t('cart.This order contains a gift')}{" "}
               </label>
             </div>
           </div>
@@ -223,7 +224,7 @@ export default function CartPage() {
               padding: "20px",
             }}
           >
-            <h5>Pair with your cart</h5>
+            <h5>{t('cart.Pair with your cart')}</h5>
             {products.length > 0 ? (
               products.slice(0, 3).map((product) => (
                 <>
@@ -273,7 +274,7 @@ export default function CartPage() {
                           borderRadius: "3rem",
                         }}
                       >
-                        Add to Cart
+                     {t('cart.Add to Cart')}
                       </Button>
                     </div>
                   </div>

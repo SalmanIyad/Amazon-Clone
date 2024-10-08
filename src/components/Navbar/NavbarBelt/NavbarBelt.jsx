@@ -3,18 +3,17 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import Offcanvastool from "../NavbarBanner/OffcanvasTool";
 import CategoriesList from "../../Categories/CategoriesList";
 import amazonLogo from "../../../assets/amazonLogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useTranslation } from "react-i18next";
 import "./NavbarBelt.css";
 
 export default function NavbarBelt() {
@@ -23,6 +22,7 @@ export default function NavbarBelt() {
   const user = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
 
+
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -30,6 +30,8 @@ export default function NavbarBelt() {
       setSearchQuery("");
     }
   };
+
+  const [t, i18n] = useTranslation();
 
   return (
     <>
@@ -47,11 +49,11 @@ export default function NavbarBelt() {
           <div className="location">
             <span id="deliver" className="m-3">
               {" "}
-              Deliver to{" "}
+              {t("navbarBelt.loction")}{" "}
             </span>
             <div className="d-flex flex-row">
               <LocationOnIcon />{" "}
-              <p className="blod m-0 p-0">Palestinian Terri... </p>
+              <p className="blod m-0 p-0">{t("navbarBelt.country")} </p>
             </div>
           </div>
         </div>
@@ -64,11 +66,11 @@ export default function NavbarBelt() {
                   variant="secondary"
                   id="dropdown-basic-categories"
                 >
-                  All
+                  {t("navbarBelt.all")}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <CategoriesList/>
+                  <CategoriesList />
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -76,12 +78,17 @@ export default function NavbarBelt() {
             <input
               className="form-control me-2"
               type="search"
-              placeholder="Search Amazon"
+              placeholder={t("navbarBelt.SearchAmazon")}
               aria-label="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button className="p-0 m-0"  type="submit" value="" style={{backgroundColor:"rgb(31 34 36)" , border:"none"}}>
+            <button
+              className="p-0 m-0"
+              type="submit"
+              value=""
+              style={{ backgroundColor: "rgb(31 34 36)", border: "none" }}
+            >
               <SearchIcon
                 style={{
                   color: "black",
@@ -100,143 +107,20 @@ export default function NavbarBelt() {
         </div>
 
         <div className="rightNavbarBelt"></div>
-        <div className="dropdown">
-          <Dropdown>
-            <div className=" DropdownToggle  d-flex  flex-row">
-              <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                <svg
+       
+        {i18n.language == "en" && 
+          <button className="btn bg-dark p-2 text-white " style={{border:"0"}}
+            onClick={() => {
+              i18n.changeLanguage("ar");
+            }}
+          >
+            {" "}
+            <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   viewBox="0 0 32 32"
-                >
-                  <rect
-                    x="1"
-                    y="4"
-                    width="30"
-                    height="24"
-                    rx="4"
-                    ry="4"
-                    fill="#fff"
-                  ></rect>
-                  <path
-                    d="M1.638,5.846H30.362c-.711-1.108-1.947-1.846-3.362-1.846H5c-1.414,0-2.65,.738-3.362,1.846Z"
-                    fill="#a62842"
-                  ></path>
-                  <path
-                    d="M2.03,7.692c-.008,.103-.03,.202-.03,.308v1.539H31v-1.539c0-.105-.022-.204-.03-.308H2.03Z"
-                    fill="#a62842"
-                  ></path>
-                  <path fill="#a62842" d="M2 11.385H31V13.231H2z"></path>
-                  <path
-                    fill="#a62842"
-                    d="M2 15.077H31V16.923000000000002H2z"
-                  ></path>
-                  <path fill="#a62842" d="M1 18.769H31V20.615H1z"></path>
-                  <path
-                    d="M1,24c0,.105,.023,.204,.031,.308H30.969c.008-.103,.031-.202,.031-.308v-1.539H1v1.539Z"
-                    fill="#a62842"
-                  ></path>
-                  <path
-                    d="M30.362,26.154H1.638c.711,1.108,1.947,1.846,3.362,1.846H27c1.414,0,2.65-.738,3.362-1.846Z"
-                    fill="#a62842"
-                  ></path>
-                  <path
-                    d="M5,4h11v12.923H1V8c0-2.208,1.792-4,4-4Z"
-                    fill="#102d5e"
-                  ></path>
-                  <path
-                    d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
-                    opacity=".15"
-                  ></path>
-                  <path
-                    d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
-                    fill="#fff"
-                    opacity=".2"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M4.601 7.463L5.193 7.033 4.462 7.033 4.236 6.338 4.01 7.033 3.279 7.033 3.87 7.463 3.644 8.158 4.236 7.729 4.827 8.158 4.601 7.463z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M7.58 7.463L8.172 7.033 7.441 7.033 7.215 6.338 6.989 7.033 6.258 7.033 6.849 7.463 6.623 8.158 7.215 7.729 7.806 8.158 7.58 7.463z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M10.56 7.463L11.151 7.033 10.42 7.033 10.194 6.338 9.968 7.033 9.237 7.033 9.828 7.463 9.603 8.158 10.194 7.729 10.785 8.158 10.56 7.463z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M6.066 9.283L6.658 8.854 5.927 8.854 5.701 8.158 5.475 8.854 4.744 8.854 5.335 9.283 5.109 9.979 5.701 9.549 6.292 9.979 6.066 9.283z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M9.046 9.283L9.637 8.854 8.906 8.854 8.68 8.158 8.454 8.854 7.723 8.854 8.314 9.283 8.089 9.979 8.68 9.549 9.271 9.979 9.046 9.283z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M12.025 9.283L12.616 8.854 11.885 8.854 11.659 8.158 11.433 8.854 10.702 8.854 11.294 9.283 11.068 9.979 11.659 9.549 12.251 9.979 12.025 9.283z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M6.066 12.924L6.658 12.494 5.927 12.494 5.701 11.799 5.475 12.494 4.744 12.494 5.335 12.924 5.109 13.619 5.701 13.19 6.292 13.619 6.066 12.924z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M9.046 12.924L9.637 12.494 8.906 12.494 8.68 11.799 8.454 12.494 7.723 12.494 8.314 12.924 8.089 13.619 8.68 13.19 9.271 13.619 9.046 12.924z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M12.025 12.924L12.616 12.494 11.885 12.494 11.659 11.799 11.433 12.494 10.702 12.494 11.294 12.924 11.068 13.619 11.659 13.19 12.251 13.619 12.025 12.924z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M13.539 7.463L14.13 7.033 13.399 7.033 13.173 6.338 12.947 7.033 12.216 7.033 12.808 7.463 12.582 8.158 13.173 7.729 13.765 8.158 13.539 7.463z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M4.601 11.104L5.193 10.674 4.462 10.674 4.236 9.979 4.01 10.674 3.279 10.674 3.87 11.104 3.644 11.799 4.236 11.369 4.827 11.799 4.601 11.104z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M7.58 11.104L8.172 10.674 7.441 10.674 7.215 9.979 6.989 10.674 6.258 10.674 6.849 11.104 6.623 11.799 7.215 11.369 7.806 11.799 7.58 11.104z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M10.56 11.104L11.151 10.674 10.42 10.674 10.194 9.979 9.968 10.674 9.237 10.674 9.828 11.104 9.603 11.799 10.194 11.369 10.785 11.799 10.56 11.104z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M13.539 11.104L14.13 10.674 13.399 10.674 13.173 9.979 12.947 10.674 12.216 10.674 12.808 11.104 12.582 11.799 13.173 11.369 13.765 11.799 13.539 11.104z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M4.601 14.744L5.193 14.315 4.462 14.315 4.236 13.619 4.01 14.315 3.279 14.315 3.87 14.744 3.644 15.44 4.236 15.01 4.827 15.44 4.601 14.744z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M7.58 14.744L8.172 14.315 7.441 14.315 7.215 13.619 6.989 14.315 6.258 14.315 6.849 14.744 6.623 15.44 7.215 15.01 7.806 15.44 7.58 14.744z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M10.56 14.744L11.151 14.315 10.42 14.315 10.194 13.619 9.968 14.315 9.237 14.315 9.828 14.744 9.603 15.44 10.194 15.01 10.785 15.44 10.56 14.744z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z"
-                  ></path>
-                </svg>
-                EN
-              </Dropdown.Toggle>
-            </div>
-            <Dropdown.Menu>
-              <Dropdown.Item href="#">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
+                  className="p-1"
                 >
                   <rect
                     x="1"
@@ -280,16 +164,21 @@ export default function NavbarBelt() {
                     d="M22.159,20.66h0s-1.5,0-1.5,0c.115-.083,.176-.205,.159-.327-.01-.077-.087-.135-.181-.143h-.047c-.114,.011-.196,.093-.184,.183l.005,.035,.006,.053c.006,.067,0,.134-.019,.199H9.313c.165,.24,.465,.386,.789,.386l10.116-.006c-.116,.083-.176,.205-.16,.328,.012,.09,.114,.154,.227,.143,.114-.011,.196-.093,.184-.183l-.005-.035-.006-.053c-.006-.067,0-.134,.019-.2h1.248s.035,.058,.035,.058c.031,.053,.071,.1,.117,.142l.064,.053h0c.126,.088,.287,.14,.456,.14,.16,0,.289-.111,.289-.248v-.072c0-.25-.237-.453-.529-.453Z"
                     fill="#fff"
                   ></path>
-                </svg>
-                AR
-              </Dropdown.Item>
-              <Dropdown.Item href="#">
-                {" "}
-                <svg
+                </svg>AR
+          </button>
+        }
+       {i18n.language =='ar'&& <button className="btn bg-dark p-2 text-white " style={{border:"0"}}
+          onClick={() => {
+            i18n.changeLanguage("en");
+          }}
+        >
+          {" "}
+          <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
                   height="32"
                   viewBox="0 0 32 32"
+                  className="p-1"
                 >
                   <rect
                     x="1"
@@ -407,27 +296,22 @@ export default function NavbarBelt() {
                     fill="#fff"
                     d="M13.539 14.744L14.13 14.315 13.399 14.315 13.173 13.619 12.947 14.315 12.216 14.315 12.808 14.744 12.582 15.44 13.173 15.01 13.765 15.44 13.539 14.744z"
                   ></path>
-                </svg>
-                EN
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-
+                </svg> EN
+        </button>}
         <div className="dropdown">
           <Dropdown>
             <div className="DropdownToggle d-flex  flex-row text-start p-0 ">
               <Dropdown.Toggle variant="dark" id="dropdown-basic">
                 {user ? (
                   <p className="p-0 m-0">
-                    Hello, <Link to={"/signin"}>sign in</Link>
+                    {t('navbar.hello')} <Link to={"/signin"}>{t('navbar.signin')}</Link>
                   </p>
                 ) : (
                   // <p className="p-0 m-0">Hello, {user.name}</p>
-                  <p className="p-0 m-0">Hello, Salman</p>
+                  <p className="p-0 m-0"> {t('navbarBelt.hello')}  Salman</p>
                 )}
                 <Link to={"/account"}>
-                  <span className="blod text-white">Account & Lists</span>
+                  <span className="blod text-white">{t('navbarBelt.Account&Lists')}</span>
                 </Link>
               </Dropdown.Toggle>
             </div>
@@ -438,8 +322,8 @@ export default function NavbarBelt() {
         </div>
         <div className="returnsOrders">
           <Link to={"/orders"} className="text-decoration-none ">
-            <p className="p-0 m-0">Returns</p>
-            <span className="font-wight-blod ">& Orders</span>
+            <p className="p-0 m-0">{t('navbarBelt.Returns')}</p>
+            <span className="font-wight-blod ">{t('navbarBelt.Orders')}</span>
           </Link>
         </div>
         <Link id="cart" to="/cart">
@@ -448,7 +332,7 @@ export default function NavbarBelt() {
             <ShoppingCartOutlinedIcon
               style={{ color: "white", fontSize: "2rem" }}
             />
-            Cart
+            {t('navbarBelt.cart')}
           </div>
         </Link>
       </div>
@@ -458,16 +342,18 @@ export default function NavbarBelt() {
             <Offcanvastool />
             <Navbar.Brand className="d-flex align-items-center">
               <Link to={"/"}>
-                  <img
-                    className="amazonLogoNavbarMoblie mt-3  img-fluid"
-                    src={amazonLogo}
-                    alt="amazonLogo"
-                  />
+                <img
+                  className="amazonLogoNavbarMoblie mt-3  img-fluid"
+                  src={amazonLogo}
+                  alt="amazonLogo"
+                />
               </Link>
             </Navbar.Brand>
           </div>
 
-          <div className="d-flex justify-content-end align-items-center">
+          <div className="navbarBeltmb d-flex flex-row justify-content-end align-items-center">
+           
+           
             {user ? (
               <Link to="/signin" className="mt-1" style={{ color: "white" }}>
                 Hello, Salman
@@ -475,7 +361,7 @@ export default function NavbarBelt() {
               </Link>
             ) : (
               <Link to="/signin" className="mt-1" style={{ color: "white" }}>
-                Sign in
+               {t('navbarBelt.signin')}
                 <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />
               </Link>
             )}
@@ -485,29 +371,33 @@ export default function NavbarBelt() {
                 <ShoppingCartOutlinedIcon
                   style={{ color: "white", fontSize: "2rem" }}
                 />
-                Cart
+               {t('navbarBelt.cart')}
               </div>
             </Link>
           </div>
 
-          <div className="navbarBeltSearchBox w-100 p-2 ">
+          <div className="navbarBeltMbSearchBox w-100 p-2 ">
             <form className="d-flex " role="search">
               <input
                 className="form-controlMobile "
                 type="search"
-                placeholder="Search Amazon"
+                placeholder={t("navbarBelt.SearchAmazon")}
                 aria-label="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <button type="submit" value="" style={{backgroundColor:"rgb(31 34 36)" , border:"none"}}>
+              <button
+                type="submit"
+                value=""
+                style={{ backgroundColor: "rgb(31 34 36)", border: "none" }}
+              >
                 <SearchIcon
                   style={{
                     color: "black",
                     backgroundColor: "#c5a95c",
                     borderRadius: "0.375rem",
                     position: "relative",
-                    right: "5%",
+                    right: "10%",
                     padding: "0.4rem",
                     width: "3rem",
                     height: "3rem",
@@ -515,6 +405,7 @@ export default function NavbarBelt() {
                 />
               </button>
             </form>
+       
           </div>
         </Container>
       </Navbar>

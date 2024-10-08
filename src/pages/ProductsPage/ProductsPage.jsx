@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useTranslation } from "react-i18next";
 import './ProductsPage.css';
 
 export default function ProductsPage() {
@@ -46,7 +47,7 @@ export default function ProductsPage() {
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
   };
-
+  const [t, i18n] = useTranslation();
   return (
     <>
       <div className="navBar d-flex justify-content-end">
@@ -84,7 +85,7 @@ export default function ProductsPage() {
             {product.description.substring(0, 30)}...
           </p>
           <p style={{ fontSize: '0.9rem', color: '#777' }}>
-            FREE delivery to Palestinian Territories. Only 7 left in stock - order soon.
+            {t('cart.FREE delivery to Palestinian Territories. Only 7 left in stock - order soon.')}
           </p>
           <div className="d-flex flex-column">
             <div className="d-flex flex-row justify-content-between align-items-center">
@@ -94,7 +95,7 @@ export default function ProductsPage() {
               </p>
             </div>
             <button className="btn btn-warning addToCard" style={{ borderRadius: '4px' }}>
-              Add to cart
+             {t('cart.Add to Cart')}
             </button>
           </div>
         </div>

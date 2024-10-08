@@ -60,12 +60,12 @@ export default function SignInPage() {
         <Row className="justify-content-center">
           <Col lg={4} md={6} className="text-center">
             <div className="text-center">
-              <Image
+              <Link to={'/'}><Image
                 src={AmazonLogo}
                 alt="Amazon Logo"
-                className="mb-2"
+                className="mb-4"
                 style={{ width: "30%" }}
-              />
+              /></Link>
             </div>
             {error && <Alert variant="danger">{error}</Alert>}
             <Card className="p-4">
@@ -89,6 +89,10 @@ export default function SignInPage() {
                     type="email"
                     placeholder="Enter your email"
                     value={email}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
@@ -109,6 +113,10 @@ export default function SignInPage() {
                     type="password"
                     placeholder="Password"
                     value={password}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                   />
