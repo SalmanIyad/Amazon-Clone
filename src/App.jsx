@@ -12,6 +12,8 @@ import UserAccountPage from './pages/UserAccountPage';
 import CategoryPage from './pages/CategoryPage/CatogoryPage'
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import CheckEmailPage from './pages/CheckEmailPage';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -36,6 +38,8 @@ const App = () => {
           <Route path="/account" element={<UserAccountPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/checkemail" element={<CheckEmailPage/>}/>
+      
         </Routes>
       </main>
       {!isAuthPage() && <Footer />}
