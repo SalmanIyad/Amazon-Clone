@@ -5,6 +5,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/slices/cartSlice";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./ProductDetails.css";
 import axios from "axios";
 import StarRating from "../../components/StarRating";
@@ -41,10 +42,10 @@ function ProductDetailsPage() {
     handleAddToCart();
     navigate("/checkout");
   }
-
+  const [t, i18n] = useTranslation(); 
 
   return (
-    <div className="Container d-flex flex-row mx-0 my-5 gap-4">
+    <div className="Container d-flex flex-row mx-0 my-5 gap-4 p-3">
       <div className="col-1 d-flex flex-column gap-1 p-4 justify-content-center">
         {isLoading
           ? Array(5)
@@ -57,11 +58,11 @@ function ProductDetailsPage() {
           )}
       </div>
 
-      <div className="col-3 main-image-container d-flex img-fluid justify-content-center align-items-center">
+      <div className="col-3 main-image-container p-2 d-flex img-fluid justify-content-center align-items-center">
         {isLoading ? (
           <Skeleton height={400} width={300} />
         ) : (
-          <img className="main-image" src={product.image} alt={product.title} />
+          <img className="main-image " src={product.image} alt={product.title} />
         )}
       </div>
 
@@ -81,36 +82,35 @@ function ProductDetailsPage() {
               <p className="rating-count">(<strong>{product.rating.count}</strong> reviews)</p>
             </div>
             <p>
-              Available at a lower price from other sellers that may not offer free
-              Prime shipping. Brand: {product.brand}
+              {t('product.Available')} {product.brand}
             </p>
             <hr />
             <table>
               <tbody>
                 <tr>
-                  <td>Brand</td>
-                  <td>{product.brand}</td>
+                  <td>{t('product.Brand')}  </td>
+                  <td>Christopher Knight Home</td>
                 </tr>
                 <tr>
-                  <td>Color</td>
-                  <td>{product.color}</td>
+                  <td>{t('product.Color')}</td>
+                  <td>White</td>
                 </tr>
                 <tr>
-                  <td>Dimensions</td>
-                  <td>{product.dimensions}</td>
+                  <td>{t('product.Dimensions')}</td>
+                  <td>"28.5"D x 26.3"W x 31.75"H"</td>
                 </tr>
                 <tr>
-                  <td>Size</td>
-                  <td>{product.size}</td>
+                  <td>{t('product.Size')}</td>
+                  <td>"	28.5D x 26.3W x 31.75H in"</td>
                 </tr>
                 <tr>
-                  <td>Special Feature</td>
-                  <td>{product.specialFeature}</td>
+                  <td>{t('product.Special Feature')}</td>
+                  <td>Arm Rest</td>
                 </tr>
               </tbody>
             </table>
             <hr />
-            <h4>About this item</h4>
+            <h4>{t('product.About this item')}</h4>
             <p>{product.description}</p>
           </>
         )}
@@ -131,20 +131,20 @@ function ProductDetailsPage() {
               <>
                 <h3>${product.price}</h3>
                 <p className="small">
-                  $485.46 Shipping & Import Charges to Palestinian
+                 {t('product.$485.46 Shipping & Import Charges to Palestinian')}
                 </p>
-                <p className="small">$365.32 delivery</p>
+                <p className="small">{t('product.$365.32 delivery')}</p>
                 <p className="smaller">
-                  <LocationOnIcon style={{ fontSize: "small" }} /> Deliver to
-                  Palestinian Territories
+                  <LocationOnIcon style={{ fontSize: "small" }} /> {t('product.Deliver to')}
+                  {t('product.Palestinian Territories')}
                 </p>
-                <p>In Stock</p>
+                <p>{t('cart.In Stock')}</p>
 
                 <select
                   className="form-select p-2"
                   aria-label="Default select example"
                 >
-                  <option selected>Quantity : 1</option>
+                  <option selected>{t('product.Quantity')} : 1</option>
                   <option value="1">2</option>
                   <option value="2">3</option>
                   <option value="3">4</option>
@@ -159,27 +159,27 @@ function ProductDetailsPage() {
                     borderRadius: "3rem"
                   }}
                   onClick={handleAddToCart}>
-                  Add to Cart
+                  {t('cart.Add to Cart')}
                 </button>
-                <button className="btn orange button" onClick= {handleBuy}>Buy Now</button>
+                <button className="btn orange button my-2" onClick={handleBuy}>{t('product.Buy Now')}</button>
 
                 <table className="smaller my-4">
                   <tbody>
                     <tr>
-                      <td>Ships from</td>
+                      <td>{t('product.Ships from')}</td>
                       <td>Amazon.com</td>
                     </tr>
                     <tr>
-                      <td>Sold by</td>
+                      <td>{t('product.Sold by')}</td>
                       <td>Amazon.com</td>
                     </tr>
                     <tr>
-                      <td>Returns</td>
-                      <td>30-day refund/replacement</td>
+                      <td>{t('product.Returns')}</td>
+                      <td>{t('product.30-day refund/replacement')}</td>
                     </tr>
                     <tr>
-                      <td>Payment</td>
-                      <td>Secure transaction</td>
+                      <td>{t('product.Payment')}</td>
+                      <td>{t('product.Secure transaction')}</td>
                     </tr>
                   </tbody>
                 </table>

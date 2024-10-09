@@ -15,7 +15,7 @@ import AdminPage from './pages/AdminPage';
 import ProfilePage from './pages/ProfilePage';
 import OrdersPage from './pages/OrdersPage';
 import SearchPage from './pages/SearchPage/SearchPage';
-
+import CheckEmailPage from './pages/CheckEmailPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import CatogoryPage from './pages/CategoryPage/CatogoryPage';
@@ -46,6 +46,7 @@ const App = () => {
           <Route path="/orders" element={<OrdersPage />} />
           <Route path="/search/:searchQuery" element={<SearchPage />} />
           <Route path="/search/" element={<HomePage />} />
+          <Route path="/checkemail" element={<CheckEmailPage/>}/>
         </Routes>
       </main>
       {!isAuthPage() && <Footer />}

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useTranslation } from "react-i18next";
 
 export default function CheckoutPage() {
 
@@ -37,34 +38,42 @@ export default function CheckoutPage() {
 
 
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
+  const [t, i18n] = useTranslation(); 
   return (
     <Container className="my-5">
-      <h1 className="mb-4 text-2xl font-bold">Checkout</h1>
+      <h1 className="mb-4 text-2xl font-bold">{t('user.Checkout')}</h1>
       <Row>
         <Col md={7}>
           <Card className="mb-4">
             <Card.Body>
-              <h3 className="mb-3 text-xl font-semibold">Shipping Address</h3>
+              <h3 className="mb-3 text-xl font-semibold">{t('user.Shipping Address')}</h3>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-                  <Form.Label>Full Name</Form.Label>
+                  <Form.Label>{t('user.Full Name')}</Form.Label>
                   <Form.Control
                     type="text"
                     name="fullName"
                     value={shippingAddress.fullName}
                     onChange={handleInputChange}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     required
                     className="form-control-lg"
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                  <Form.Label>Address</Form.Label>
+                  <Form.Label>{t('user.Address')}</Form.Label>
                   <Form.Control
                     type="text"
                     name="address"
                     value={shippingAddress.address}
                     onChange={handleInputChange}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     required
                     className="form-control-lg"
                   />
@@ -72,12 +81,16 @@ export default function CheckoutPage() {
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
-                      <Form.Label>City</Form.Label>
+                      <Form.Label>{t('user.City')}</Form.Label>
                       <Form.Control
                         type="text"
                         name="city"
                         value={shippingAddress.city}
                         onChange={handleInputChange}
+                        style={{
+                          border:"0.0625rem grey solid",
+                          borderRadius:"0.625rem"
+                        }}
                         required
                         className="form-control-lg"
                       />
@@ -85,12 +98,16 @@ export default function CheckoutPage() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-3">
-                      <Form.Label>Postal Code</Form.Label>
+                      <Form.Label>{t('user.Postal Code')}</Form.Label>
                       <Form.Control
                         type="text"
                         name="postalCode"
                         value={shippingAddress.postalCode}
                         onChange={handleInputChange}
+                        style={{
+                          border:"0.0625rem grey solid",
+                          borderRadius:"0.625rem"
+                        }}
                         required
                         className="form-control-lg"
                       />
@@ -98,18 +115,22 @@ export default function CheckoutPage() {
                   </Col>
                 </Row>
                 <Form.Group className="mb-3">
-                  <Form.Label>Country</Form.Label>
+                  <Form.Label>{t('user.Country')}</Form.Label>
                   <Form.Control
                     type="text"
                     name="country"
                     value={shippingAddress.country}
                     onChange={handleInputChange}
+                    style={{
+                      border:"0.0625rem grey solid",
+                      borderRadius:"0.625rem"
+                    }}
                     required
                     className="form-control-lg"
                   />
                 </Form.Group>
                 <Button variant="warning" type="submit" size="lg" className="w-100 mt-3">
-                  Place Order
+                {t('user.Place Order')}
                 </Button>
               </Form>
             </Card.Body>
@@ -118,7 +139,7 @@ export default function CheckoutPage() {
         <Col md={5}>
           <Card>
             <Card.Body>
-              <h3 className="mb-3 text-xl font-semibold">Order Summary</h3>
+              <h3 className="mb-3 text-xl font-semibold">{t('user.Order Summary')}</h3>
               <ListGroup variant="flush">
                 {cartItems.map((item) => (
                   <ListGroup.Item key={item.id} className="d-flex justify-content-between align-items-center">
@@ -138,11 +159,11 @@ export default function CheckoutPage() {
               <div className="mt-3">
                 <p className="mb-1 text-muted">
                   <LocationOnIcon className="me-2" style={{ fontSize: 'small' }} />
-                  Deliver to {shippingAddress.country || 'Your Location'}
+                  {t('user.Deliver to')} {shippingAddress.country || 'Your Location'}
                 </p>
                 <p className="mb-1 text-muted">
                   <ShoppingCartOutlinedIcon className="me-2" style={{ fontSize: 'small' }} />
-                  {cartItems.length} items in your cart
+                  {cartItems.length} {t('user.items in your cart')}
                 </p>
               </div>
             </Card.Body>
@@ -150,7 +171,7 @@ export default function CheckoutPage() {
           <div className="mt-3 text-center">
             <Link to="/cart" className="text-decoration-none">
               <Button variant="outline-primary" size="md">
-                Edit Cart
+              {t('user.Edit Cart')}
               </Button>
             </Link>
           </div>

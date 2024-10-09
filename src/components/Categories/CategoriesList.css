@@ -1,3 +1,10 @@
+.categories-container {
+    padding-top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .btn-category {
     width: 100%;
     padding: 10px;
