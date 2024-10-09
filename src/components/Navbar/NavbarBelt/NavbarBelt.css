@@ -29,6 +29,7 @@
   border: 1px solid;
   border-radius: 0.1875rem;
   height: 3.8125rem;
+  
 }
 
 .leftNavbarLogo:hover {
@@ -80,7 +81,7 @@ input.form-controlMobile {
 }
 
 .navbarBeltSearchBox {
-  width: 48%;
+  width: 47%;
 }
 
 .returnsOrders a {
