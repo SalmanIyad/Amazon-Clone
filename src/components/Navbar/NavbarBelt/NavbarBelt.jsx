@@ -41,13 +41,13 @@ export default function NavbarBelt() {
           <div className="leftNavbarLogo  ">
             <Link to={"/"}>
               <img
-                className="amazonLogoNavbar img-fluid d-flex align-items-center"
+                className="amazonLogoNavbar img-fluid d-flex align-items-center p-2"
                 src={amazonLogo}
                 alt="amazonLogo"
               />
             </Link>
           </div>
-          <div className="location">
+          <div className="location p-2" style={{height: "3.8125rem"}}>
             <span id="deliver" className="m-3">
               {" "}
               {t("navbarBelt.loction")}{" "}
@@ -97,7 +97,7 @@ export default function NavbarBelt() {
                   borderTopRightRadius: "6px",
                   borderBottomRightRadius: "6px",
                   position: "relative",
-                  right: "16%",
+                  right: "17%",
                   padding: "0.4rem",
                   width: "3rem",
                   height: "3rem",
@@ -323,7 +323,7 @@ export default function NavbarBelt() {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <div className="returnsOrders">
+        <div className="returnsOrders pt-2 px-1 " style={{height: "3.8125rem"}}>
           <Link to={"/orders"} className="text-decoration-none ">
             <p className="p-0 m-0">{t('navbarBelt.Returns')}</p>
             <span className="font-wight-blod ">{t('navbarBelt.Orders')}</span>
