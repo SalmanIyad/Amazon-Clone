@@ -307,7 +307,7 @@ export default function NavbarBelt() {
                   <p className="p-0 m-0">Hello, {user.name}</p>
                 ) : (
                   <p className="p-0 m-0">
-                    {t('navbar.hello')} <Link to={"/signin"} className="mt-1 text-capitalize" style={{ color: "white", textDecoration: "underline" }}>{t('navbar.signin')}</Link>
+                    {t('navbarBelt.hello')} <Link to={"/signin"} className="mt-1 text-capitalize" style={{ color: "white", textDecoration: "underline" }}>{t('navbarBelt.signin')}</Link>
                   </p>
                 )}
                 <Link to={"/account"}>
