@@ -16,7 +16,7 @@ function CatogoryPage() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://fakestoreapi.com/products/category/${category}`
+          `${import.meta.env.VITE_API_BASE_URL}/products/category/${category}`
         );
         const productsData = response.data;
         setProducts(productsData);
