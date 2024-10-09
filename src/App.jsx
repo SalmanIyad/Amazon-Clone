@@ -14,6 +14,8 @@ import SignUpPage from './pages/SignUpPage';
 import AdminPage from './pages/AdminPage';
 import ProfilePage from './pages/ProfilePage';
 import OrdersPage from './pages/OrdersPage';
+import SearchPage from './pages/SearchPage/SearchPage';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import CatogoryPage from './pages/CategoryPage/CatogoryPage';
@@ -42,6 +44,8 @@ const App = () => {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/search/:searchQuery" element={<SearchPage />} />
+          <Route path="/search/" element={<HomePage />} />
         </Routes>
       </main>
       {!isAuthPage() && <Footer />}

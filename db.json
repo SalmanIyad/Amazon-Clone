@@ -250,23 +250,17 @@
       "role": "user"
     },
     {
+      "id": "1111",
       "name": "User",
       "email": "user@user.com",
       "password": "user123",
-      "id": "1111"
+      "role": "user"
     },
     {
       "id": "d46f",
       "name": "Salman Abualhin",
       "email": "eng.salmaniyad@gmail.com",
       "password": "salman123",
-      "role": "admin"
-    },
-    {
-      "id": "61c9",
-      "name": "Salman ",
-      "email": "ss@ss.com",
-      "password": "sss123",
       "role": "admin"
     }
   ]

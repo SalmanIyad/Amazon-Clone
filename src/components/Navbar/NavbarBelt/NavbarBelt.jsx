@@ -27,7 +27,7 @@ export default function NavbarBelt() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+      navigate(`/search/${searchQuery}`);
       setSearchQuery("");
     }
   };

@@ -35,7 +35,6 @@ function CatogoryPage() {
 
   return (
     <>
-
       <div className="col-12 d-flex flex-wrap  justify-content-center">
         <div className="col-2 d-flex flex-column p-4 my-4">
           <h5>Department</h5>
