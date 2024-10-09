@@ -1,10 +1,10 @@
-import "./categoryPage.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
+import "./CategoryPage.css";
 
 function CatogoryPage() {
   const [products, setProducts] = useState([]);
@@ -16,7 +16,7 @@ function CatogoryPage() {
       try {
         setLoading(true);
         const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/products`);
-        
+
         if (response.status === 200) {
           const allProducts = response.data;
           const filteredProducts = allProducts.filter(product => product.category === category);
