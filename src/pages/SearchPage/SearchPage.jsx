@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useTranslation } from "react-i18next";
+import './SearchPage.css';
 import StarRating from "../../components/StarRating";
-import './ProductsPage.css';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState("featured");
-  const [searchQuery, setSearchQuery] = useState("");
+  const { searchQuery } = useParams();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -54,12 +53,6 @@ export default function ProductsPage() {
     setSortBy(e.target.value);
   };
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const [t, i18n] = useTranslation();
-
   return (
     <>
       <div className="navBar d-flex justify-content-between align-items-center mb-4">
@@ -71,19 +64,6 @@ export default function ProductsPage() {
             <option value="customerReview">Avg. Customer Review</option>
             <option value="bestSellers">Best Sellers</option>
           </select>
-        </div>
-        <div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search Products"
-            value={searchQuery}
-            onChange={handleSearchChange} 
-            style={{
-              width: "300px",
-              maxWidth: "500px"
-            }}
-          />
         </div>
       </div>
 
@@ -109,7 +89,7 @@ export default function ProductsPage() {
                   />
                   <div className="card-body d-flex flex-column justify-content-between" style={{ padding: '10px' }}>
                     <h5 className="card-title" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{product.title}</h5>
-
+                    
                     <div className="rating-container">
                       <StarRating rating={product.rating.rate} />
                       <p className="rating-count">(<strong>{product.rating.count}</strong> reviews)</p>
@@ -118,7 +98,7 @@ export default function ProductsPage() {
                       {product.description.substring(0, 30)}...
                     </p>
                     <p style={{ fontSize: '0.9rem', color: '#777' }}>
-                      {t('cart.FREE delivery to Palestinian Territories. Only 7 left in stock - order soon.')}
+                      FREE delivery to Palestinian Territories. Only 7 left in stock - order soon.
                     </p>
                     <div className="d-flex flex-column">
                       <div className="d-flex flex-row justify-content-between align-items-center">
@@ -135,7 +115,7 @@ export default function ProductsPage() {
                           borderRadius: "3rem",
                           marginTop: "1rem"
                         }}>
-                          {t('cart.Add to Cart')}
+                        Add to cart
                       </button>
                     </div>
                   </div>

@@ -5,12 +5,16 @@ import ReorderIcon from "@mui/icons-material/Reorder";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./OffcanvasTool.css";
+import { useSelector } from "react-redux";
+import SignOutButton from "../../SignOutButton";
 
 function Offcanvastool() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const user = useSelector((state) => state.user.currentUser);
   const [t, i18n] = useTranslation();
+
   return (
     <>
       <Button variant="dark" onClick={handleShow}>
@@ -20,7 +24,15 @@ function Offcanvastool() {
       <Offcanvas show={show} onHide={handleClose} className="offcanvas-menu">
         <Offcanvas.Header closeButton className="offcanvas-header">
           <Offcanvas.Title>
-            <h4 className="py-2">{t('offcanvas.Hello,')} <Link to="/signin" style={{ color: "white", textDecoration: "underline" }}>{t('offcanvas.Sign in')}</Link></h4>
+            {user ? (
+              <Link to="/profile" className="mt-1 text-capitalize" style={{ color: "white" }}>
+                {t('offcanvas.Hello,')} {user.name}
+              </Link>
+            ) : (
+              <Link to="/signin" className="mt-1" style={{ color: "white" }}>
+                 {t('offcanvas.Hello,')} Sign in
+              </Link>
+            )}
           </Offcanvas.Title>
         </Offcanvas.Header>
 
@@ -75,7 +87,7 @@ function Offcanvastool() {
                 <Link to="#">{t('offcanvas.Customer Service')}</Link>
               </li>
               <li>
-                <Link to="/signin">{t('offcanvas.Sign in')}</Link>
+                {user ? <SignOutButton/> : <Link to="/signin">{t('offcanvas.Sign in')}</Link>}
               </li>
             </ul>
           </div>

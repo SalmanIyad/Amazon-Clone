@@ -9,13 +9,16 @@ import ProductDetailPage from './pages/ProductDetailsPage/ProductDetailsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage'; 
 import UserAccountPage from './pages/UserAccountPage';
-import CategoryPage from './pages/CategoryPage/CatogoryPage'
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import AdminPage from './pages/AdminPage';
+import ProfilePage from './pages/ProfilePage';
+import OrdersPage from './pages/OrdersPage';
+import SearchPage from './pages/SearchPage/SearchPage';
 import CheckEmailPage from './pages/CheckEmailPage';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import CatogoryPage from './pages/CategoryPage/CatogoryPage';
 
 const App = () => {
   const location = useLocation();
@@ -30,16 +33,20 @@ const App = () => {
       <main className="flex-grow-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/category/:category" element={<CatogoryPage />} />
           <Route path="/products" element={<ProductListingPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path='/category/:category' element={<CategoryPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/account" element={<UserAccountPage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/search/:searchQuery" element={<SearchPage />} />
+          <Route path="/search/" element={<HomePage />} />
           <Route path="/checkemail" element={<CheckEmailPage/>}/>
-      
         </Routes>
       </main>
       {!isAuthPage() && <Footer />}

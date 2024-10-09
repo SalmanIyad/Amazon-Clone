@@ -15,6 +15,7 @@ import amazonLogo from "../../../assets/amazonLogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useTranslation } from "react-i18next";
 import "./NavbarBelt.css";
+import SignOutButton from "../../SignOutButton";
 
 export default function NavbarBelt() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,7 +27,7 @@ export default function NavbarBelt() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+      navigate(`/search/${searchQuery}`);
       setSearchQuery("");
     }
   };
@@ -303,12 +304,11 @@ export default function NavbarBelt() {
             <div className="DropdownToggle d-flex  flex-row text-start p-0 ">
               <Dropdown.Toggle variant="dark" id="dropdown-basic">
                 {user ? (
-                  <p className="p-0 m-0">
-                    {t('navbar.hello')} <Link to={"/signin"}>{t('navbar.signin')}</Link>
-                  </p>
+                  <p className="p-0 m-0">Hello, {user.name}</p>
                 ) : (
-                  // <p className="p-0 m-0">Hello, {user.name}</p>
-                  <p className="p-0 m-0"> {t('navbarBelt.hello')}  Salman</p>
+                  <p className="p-0 m-0">
+                    {t('navbarBelt.hello')} <Link to={"/signin"} className="mt-1 text-capitalize" style={{ color: "white", textDecoration: "underline" }}>{t('navbarBelt.signin')}</Link>
+                  </p>
                 )}
                 <Link to={"/account"}>
                   <span className="blod text-white">{t('navbarBelt.Account&Lists')}</span>
@@ -316,7 +316,10 @@ export default function NavbarBelt() {
               </Dropdown.Toggle>
             </div>
             <Dropdown.Menu>
-              <Dropdown.Item href="#">Action</Dropdown.Item>
+              <Dropdown.Item><Link to={"/account"}>My Account</Link></Dropdown.Item>
+              <Dropdown.Item><Link to={"/profile"}>My Profile</Link></Dropdown.Item>
+              {(user?.role === 'admin') && <Dropdown.Item><Link to={"/admin"}>Dashboard</Link></Dropdown.Item>}
+              <Dropdown.Item><SignOutButton/></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
@@ -355,15 +358,14 @@ export default function NavbarBelt() {
            
            
             {user ? (
-              <Link to="/signin" className="mt-1" style={{ color: "white" }}>
-                Hello, Salman
+              <Link to="/profile" className="mt-1 text-capitalize" style={{ color: "white" }}>
+                Hello, {user.name}
                 <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />
               </Link>
             ) : (
               <Link to="/signin" className="mt-1" style={{ color: "white" }}>
-               {t('navbarBelt.signin')}
-                <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />
-              </Link>
+                {t('navbarBelt.signin')}
+                <PersonOutlineIcon style={{ fontSize: "1.6rem" }} />               </Link>
             )}
             <Link id="cart" to="/cart">
               <div className="ShoppingCart">

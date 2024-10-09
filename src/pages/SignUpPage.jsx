@@ -19,7 +19,7 @@ import AuthPageFooter from "../components/AuthPageFooter";
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
-const apiUrl = "http://localhost:5000/users";
+const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/users`;
 
 export default function SignUpPage() {
   const [name, setName] = useState("");
@@ -59,9 +59,8 @@ export default function SignUpPage() {
 
       const newUser = await response.json();
       dispatch(setUser(newUser));
-
+      localStorage.setItem("userId", newUser.id);
       navigate("/checkemail");
-
     } catch (err) {
       setError(err.message);
     }
@@ -272,8 +271,8 @@ export default function SignUpPage() {
             </div>
             {error && <Alert variant="danger">{error}</Alert>}
             <Card className="p-4">
-              <h2 className="text-left" style={{ textAlign: "start" }}>
-               {t('user.Create account')}
+              <h2 style={{ textAlign: "left" }}>
+              {t('user.Create account')}
               </h2>
               <br />
               <Form onSubmit={handleSubmit}>
