@@ -72,9 +72,9 @@ export default function CartPage() {
               cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="d-flex flex-column flex-md-row justify-content-between mb-3 pb-3 border-bottom"
+                  className="d-flex flex-column flex-md-row justify-content-between  mb-3 pb-3 border-bottom"
                 >
-                  <div className="d-flex flex-column flex-md-row">
+                  <div className="d-flex flex-column flex-md-row align-items-center">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -231,7 +231,7 @@ export default function CartPage() {
                   <hr />
                   <div
                     key={product.id}
-                    className="d-flex flex-column flex-md-row align-items-start mb-3 p-1"
+                    className="d-flex flex-column flex-md-row align-items-center mb-3 p-1"
                   >
                     <Link to={`/product/${product.id}`}>
                       <Image

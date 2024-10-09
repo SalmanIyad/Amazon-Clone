@@ -123,8 +123,48 @@
    "Secure transaction":" معاملةآمنة",
    "Department":"القسم",
    "list":"سابقاٌ"
+    },
+
+    "user": {
+    "Checkout":"الدفع",
+      "Shipping Address": "عنوان التسوق",
+      "Full Name": "الاسم الكامل",
+      "Address": "العنوان",
+      "City":"المدينة",
+      "Country": "الدولة",
+      "Postal Code":"الرمز البريدي",
+      "Deliver to":"التوصيل إلى",
+      "items in your cart":"منتجات في عربتك",
+      "Edit Cart":"تعديل العربة",
+      "Order Summary":"ملخص الطلب",
+      "Place Order":"ارسل الطلب",
+      "Sign In":"تسجيل الدخول",
+      "Email or mobile phone number":"البريد الإلكتروني أو رقم الهاتف",
+      "Enter your email":" ادخل البريد الإلكتروني",
+      "Password":" ادخل كلمة المرور"    ,
+      "Continue":"تابع",
+      "By continuing, you agree to Amazons":"بالمتابعة انت توافق على",
+      "Conditions of Use":"شروط الاستخدام",
+      "Privacy Notice":"قواعد الخصوصية ",
+      "and":"و",
+      "Need help?":"بحاجة للمساعدة؟",
+      "Shop on Amazon Business":"تسوق على أمازون للاعمال",
+      "Create your Amazon account":"أنشئ حساب أمازون الخاص بك",
+      "Bying for work?":"هل تريد العمل؟",
+      "New to Amazon?":"جديد على أمازون",
+      "Create account":"أنشئ حساب",
+    "Your Name":"الاسم",
+    "First and last name":"لاسم الأول والأخير",
+    "Email address":"البريد الإلكتروني",
+    "Enter email":"ادخل بريدك الإلكتروني",
+    "At least 6 characters":"على الأقل ستة أحرف",
+    "Re-enter password":"تأكيد كلمة المرور",
+    "Confirm Password":"أعد كتابة كلمة المرور",
+    "Create a free business account":"قم بإنشاء حساب أمازون للأعمال",
+    "Already have an account?":"هل تمتلك حساباٌ؟",
+    "Sign in":" سجل دخولك"
+    }
 
 
-
-    }}
+}
     
