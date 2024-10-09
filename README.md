@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the **Amazon Clone** project! This application replicates the core features of Amazon, utilizing modern web technologies for a seamless user experience.
+Welcome to the **Amazon Clone** project! This application replicates the core features of Amazon, utilizing modern web technologies for a seamless user experience. As the team lead, I directed the project from conception to completion, establishing a robust architecture and providing mentorship to ensure our collective vision was realized.
 
 ## Technologies Used
 
@@ -11,7 +11,6 @@ Welcome to the **Amazon Clone** project! This application replicates the core fe
     <img src="https://skillicons.dev/icons?i=js,react,redux,vite,materialui,bootstrap&perline=8" />
   </a>
 </p>
-
 
 ## Features
 
@@ -68,8 +67,11 @@ This will run both the Vite development server and the JSON server concurrently.
 
 ## Contributors
 
-- [@SalmanIyad](https://github.com/SalmanIyad)
-- [@mennamassri](https://github.com/mennamassri)
+- **[@SalmanIyad](https://github.com/SalmanIyad)**: As the visionary team lead, Salman was the driving force behind the project’s architecture and logic. He expertly crafted the core functionalities, including complex search algorithms and state management with Redux. Additionally, Salman created the backend using JSON Server in a separate repository, providing a flexible API to support dynamic operations in the application. His keen eye for design also shaped the Admin Dashboard and user profile interfaces, ensuring they were both functional and user-friendly. Salman’s leadership inspired the team to innovate and collaborate effectively.
+
+- **[@mennamassri](https://github.com/mennamassri)**: Manna played a crucial role in elevating the user interface to new heights. She meticulously designed and implemented several React components, ensuring they aligned with our user-centric philosophy. Her creativity shone through in the aesthetics of the application, as she transformed wireframes into visually appealing interfaces that enhanced user engagement and satisfaction.
+
+- **[@jehaddaher](https://github.com/jehaddaher)**: Jehad’s contributions were integral to maintaining a clean and efficient codebase. He focused on developing specific UI components using pure React, ensuring optimal performance and usability. His attention to detail in component design ensured a cohesive and polished user experience, while his technical expertise helped streamline development processes.
 
 ## Contact
 
