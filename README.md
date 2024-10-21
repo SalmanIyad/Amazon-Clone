@@ -1,4 +1,5 @@
 # Amazon Clone
+[![wakatime](https://wakatime.com/badge/user/8bfe825c-8d08-480c-b144-2db0d5ec5057/project/54473db7-1e57-4b33-ab9e-9cf0ddfb127e.svg)](https://wakatime.com/badge/user/8bfe825c-8d08-480c-b144-2db0d5ec5057/project/54473db7-1e57-4b33-ab9e-9cf0ddfb127e)
 
 ## Overview
 
